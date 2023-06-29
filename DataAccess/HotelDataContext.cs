@@ -7,11 +7,18 @@ namespace Flappy_Mock_Hotel.DataAccess
         //constructor
         public HotelDataContext(DbContextOptions<HotelDataContext> options) : base(options) { }
 
-        // TODO add DbSets
+        public DbSet<Room> Rooms { get; set; }
+        public DbSet<Booking> Bookings { get; set; }
+        public DbSet<Guest> Guests { get; set; }
+        public DbSet<Billing> Billings { get; set; }
 
-        // TODO add OnModelCreating(ModelBuilder modelBuilder) method for Fluent API
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(HotelDataContext).Assembly);
+        }
 
 
+        
     }
 
 }
