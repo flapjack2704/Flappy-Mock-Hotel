@@ -18,7 +18,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddCors(
     options => options.AddDefaultPolicy(builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader()));
 builder.Services.AddDbContext<HotelDataContext>(
-    options => options.UseSqlServer(builder.Configuration["ConnectionStrings:DefaultCOnnection"]));
+    options => options.UseSqlServer(builder.Configuration["ConnectionStrings:DefaultConnection"]));
 
 var app = builder.Build();
 

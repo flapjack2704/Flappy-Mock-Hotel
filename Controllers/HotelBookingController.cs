@@ -8,7 +8,7 @@ using System.ComponentModel;
 namespace Flappy_Mock_Hotel.Controllers
 {
     [ApiController]
-    [Route("api/booking")]
+    [Route("api/flappy-hotel-bookings")]
     public class HotelBookingController : ControllerBase
     {
 
@@ -23,11 +23,11 @@ namespace Flappy_Mock_Hotel.Controllers
 
         [HttpGet]
         [Route("rooms")]
-        public Task<List<Room>> GetAllRooms()
-        {
-            return context.Rooms
-                .ToListAsync();
-        }
+        public Task<List<Room>> GetAllRooms() => context.Rooms.ToListAsync();
+
+        [HttpGet]
+        [Route("rooms/{Id}")]
+        public Task<Room?> GetRoomById([FromRoute] int Id) => context.Rooms.FirstOrDefaultAsync(r => r.Id == Id);
 
         [HttpPost]
         [Route("rooms")]
@@ -40,11 +40,20 @@ namespace Flappy_Mock_Hotel.Controllers
 
         [HttpGet]
         [Route("bookings")]
-        public Task<List<Booking>> GetAllBookings()
+        public async Task<List<Booking>> GetAllBookings()
         {
-            return context.Bookings
-                .ToListAsync();
+
+            foreach (var guest in context.Guests.ToList())
+            {
+                await context.Entry(guest).Collection(g => g.Bookings).Query().Include(b => b.Room).LoadAsync();
+            }
+
+            return context.Bookings.ToList();
         }
+
+        [HttpGet]
+        [Route("bookings/{Id}")]
+        public Task<Booking?> GetBookingById([FromRoute] int Id) => context.Bookings.FirstOrDefaultAsync(b => b.Id == Id);
 
         [HttpPost]
         [Route("bookings")]
@@ -59,11 +68,7 @@ namespace Flappy_Mock_Hotel.Controllers
 
         [HttpGet]
         [Route("guests")]
-        public Task<List<Guest>> GetAllGuests()
-        {     
-            return context.Guests
-                .ToListAsync();
-        }
+        public Task<List<Guest>> GetAllGuests() => context.Guests.ToListAsync();
 
         [HttpPost]
         [Route("guests")]
@@ -72,6 +77,18 @@ namespace Flappy_Mock_Hotel.Controllers
             context.Add(newGuest);
             await context.SaveChangesAsync();
             return newGuest;
+        }
+
+        [HttpGet]
+        [Route("guests/{Id}")]
+        public async Task<Guest?> GetGuestById([FromRoute] int Id)
+        {
+            Guest guest = await context.Guests.FirstOrDefaultAsync(g => g.Id == Id);
+
+            await context.Entry(guest).Collection(g => g.Bookings).Query().Include(b => b.Room).LoadAsync();
+            await context.Entry(guest).Collection(g => g.Billings).LoadAsync();
+
+            return guest;
         }
 
         [HttpGet]
@@ -103,11 +120,11 @@ namespace Flappy_Mock_Hotel.Controllers
 
         [HttpGet]
         [Route("billings")]
-        public Task<List<Billing>> GetAllBillings()
-        {
-            return context.Billings
-                .ToListAsync();
-        }
+        public Task<List<Billing>> GetAllBillings() => context.Billings.ToListAsync();
+
+        [HttpGet]
+        [Route("billings/{Id}")]
+        public Task<Billing?> GetBillingById([FromRoute] int Id) => context.Billings.FirstOrDefaultAsync(b => b.Id == Id);
 
         [HttpPost]
         [Route("billings")]

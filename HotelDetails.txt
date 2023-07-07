@@ -1,0 +1,2 @@
+﻿This hotel has 4 floors, with a total of 14 rooms.
+Rooms: Floor 1 has 4 Double rooms, Floor 2 has 4 Single rooms, Floor 3 has 4 Family rooms, Floor 4 has 2 Double rooms of higher cost (Has a better TV or something)
