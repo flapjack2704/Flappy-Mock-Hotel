@@ -1,0 +1,63 @@
+<h2>Booking Creation</h2>
+
+<p>Do some check to see if the guest already is in our database (by their email?)</p>
+<form #checkform="ngForm">
+    <div>
+        <label>Email
+            <input type="text" />
+        </label>
+    </div>
+</form>
+
+<h3>Enter details for guest</h3>
+
+<form (ngSubmit)="submitGuest()" #guestForm="ngForm">
+    <fieldset>
+        <legend>First Name</legend>
+        <input type="text" id="fname" name="firstname" [(ngModel)]="guest.firstname" required>
+    </fieldset>
+    <fieldset>
+        <legend>Last Name</legend>
+        <input type="text" id="lname" name="lastname" [(ngModel)]="guest.lastname" required>
+    </fieldset>
+    <fieldset>
+        <legend>Email</legend>
+        <input type="text" id="email" name="email" [(ngModel)]="guest.email" required>
+    </fieldset>
+    <fieldset>
+        <legend>Phone Number</legend>
+        <input type="text" id="phone" name="phone" [(ngModel)]="guest.phone">
+    </fieldset>
+    <button type="submit" id="guestButton" [disabled]="!guestForm.form.valid">Submit</button>
+</form>
+
+<p>REMOVE LATER TEST: {{guest.firstname}} {{guest.lastname}} {{guest.email}} {{guest.phone}}</p>
+<p>{{guest | json}}</p>
+    
+
+
+
+<h3>Enter details for booking</h3>
+
+<form (ngSubmit)="submitBooking()" #bookingForm="ngForm">
+    <fieldset>
+        <legend>Guest ID</legend>
+        <input type="text" id="guestID" name="guestID" [(ngModel)]="booking.guestId" required>
+    </fieldset>
+    <fieldset>
+        <legend>Check-in Date and Time</legend>
+        <input type="datetime-local" id="checkIn"
+               name="checkin" value=""
+               min="2023-08-01T00:00" max="2023-10-01T00:00" required>
+    </fieldset>
+    <fieldset>
+        <legend>Check-out Date and Time</legend>
+        <input type="datetime-local" id="checkOut"
+               name="checkout" value=""
+               min="2023-08-01T00:00" max="2023-10-01T00:00" required>
+    </fieldset>
+    <button type="submit" id="bookingButton" [disabled]="!bookingForm.form.valid">Submit</button>
+</form>
+
+<p>etc etc etc</p>
+
