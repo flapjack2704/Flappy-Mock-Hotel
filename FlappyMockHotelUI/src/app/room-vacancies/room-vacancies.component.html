@@ -3,12 +3,38 @@
 
 <table>
     <tr>
-        <td><button (click)="getAllVacancies()" id="allCurrentVacancies">Check All Currently Vacant Rooms</button></td>
+        <td><button (click)="showAllVacancies()" id="allCurrentVacancies">Check All Currently Vacant Rooms</button></td>
     </tr>
+    <ng-container *ngIf="showVacanciesClicked">
+        <tr *ngFor="let vac of vacancies">
+            <td>{{ vac.roomNo }}: {{ vac.pricePerNight }} per night</td>
+        </tr>
+    </ng-container>
     <tr>
-        <td><button id="allCurrentVacantSingle">Check Currently Vacant Single Rooms</button></td>
+        <td><button (click)="showAllSingleVacancies()" id="allCurrentVacantSingle">Check Currently Vacant Single Rooms</button></td>
     </tr>
+    <ng-container *ngIf="showSingleVacanciesClicked">
+        <tr *ngFor="let vac of singleVacancies">
+            <td>{{ vac.roomNo }}: {{ vac.roomType }} , {{ vac.pricePerNight }} per night</td>
+        </tr>
+    </ng-container>
     <tr>
-        <td><button (click)="getAllRooms()" id="allRooms">get alll roooms</button></td>
+        <td><button (click)="showAllDoubleVacancies()" id="allCurrentVacantDouble">Check Currently Vacant Double Rooms</button></td>
     </tr>
+    <ng-container *ngIf="showDoubleVacanciesClicked">
+        <tr *ngFor="let vac of doubleVacancies">
+            <td>{{ vac.roomNo }}: {{ vac.roomType }} , {{ vac.pricePerNight }} per night</td>
+        </tr>
+    </ng-container>
+    <tr>
+        <td><button (click)="showAllRooms()" id="allRooms">get alll roooms</button></td>
+    </tr>
+    <ng-container *ngIf="showRoomsClicked">
+        <tr>
+            Type: 0 = Single, 1 = Double, 2 = Family. Will change EF Migration later lol
+        </tr>
+        <tr *ngFor="let room of rooms">
+            {{ room.roomNo }}: type = {{ room.roomType }}, {{ room.pricePerNight }} per night
+        </tr>
+    </ng-container>
 </table>

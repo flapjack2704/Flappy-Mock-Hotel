@@ -66,24 +66,78 @@ export class RoomVacanciesComponent {
     rooms: Room[] = [];
     roomIds: number[] = [];
     bookings: Booking[] = [];
+    vacancies: Room[] = [];
+    singleVacancies: Room[] = [];
+    doubleVacancies: Room[] = [];
+    showRoomsClicked = false;
+    showVacanciesClicked = false;
+    showSingleVacanciesClicked = false;
+    showDoubleVacanciesClicked = false;
 
     constructor(
         private apiservice: HotelAPIserviceService
-    ) { }
+    ) {
+        this.getAllRooms();
+        this.getAllBookings();
+    }
     
-    public getAllVacancies() {
-        //const rooms: number[] = this.getAllRooms();
+    public showAllVacancies() {
+        // Gets Bookings+Rooms, and "removes" booked rooms by roomNo
+
+        this.vacancies = [];
+        this.showVacanciesClicked = !this.showVacanciesClicked;
+
+        for (let i = 0; i < this.rooms.length; i++) {
+            if (!this.bookings.some(b => b.roomId === this.rooms[i].id)) {
+                this.vacancies.push(this.rooms[i]);
+            } 
+        }
+    }
+
+    public showAllSingleVacancies() {
+        // Gets Bookings+Rooms, and "removes" booked rooms by roomNo
+
+        this.singleVacancies = [];
+        this.showSingleVacanciesClicked = !this.showSingleVacanciesClicked;
+
+        for (let i = 0; i < this.rooms.length; i++) {
+            if (!this.bookings.some(b => b.roomId === this.rooms[i].id) && this.rooms[i].roomType === 0) {
+                this.singleVacancies.push(this.rooms[i]);
+            }
+        }
+    }
+
+    public showAllDoubleVacancies() {
+        // Gets Bookings+Rooms, and "removes" booked rooms by roomNo
+
+        this.doubleVacancies = [];
+        this.showDoubleVacanciesClicked = !this.showDoubleVacanciesClicked;
+
+        for (let i = 0; i < this.rooms.length; i++) {
+            if (!this.bookings.some(b => b.roomId === this.rooms[i].id) && this.rooms[i].roomType === 1) {
+                this.doubleVacancies.push(this.rooms[i]);
+            }
+        }
+    }
+
+    public showAllRooms() {
+        this.showRoomsClicked = !this.showRoomsClicked;
+    }
+
+
+
+
+
+    public getAllBookings() {
         this.apiservice.getAllBookings().subscribe(response => {
             this.bookings = response;
-            console.log(response);
         })
     }
 
-    public getAllRooms() {
 
-        this.apiservice.getAllRooms().subscribe((response: any) => {
-            this.rooms = response
-            console.log(response);
+    public getAllRooms() {
+        this.apiservice.getAllRooms().subscribe(response => {
+            this.rooms = response;
         })
     }
     

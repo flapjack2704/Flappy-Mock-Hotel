@@ -24,7 +24,7 @@ export class HotelAPIserviceService {
         */
     }
 
-    public getAllRooms() {
+    public getAllRooms(): Observable<any> {
         const url = 'https://localhost:7262/api/flappy-hotel-bookings/rooms'
         return this.http.get(url);
     }
