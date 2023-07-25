@@ -69,10 +69,12 @@ export class RoomVacanciesComponent {
     vacancies: Room[] = [];
     singleVacancies: Room[] = [];
     doubleVacancies: Room[] = [];
+    familyVacancies: Room[] = [];
     showRoomsClicked = false;
     showVacanciesClicked = false;
     showSingleVacanciesClicked = false;
     showDoubleVacanciesClicked = false;
+    showFamilyVacanciesClicked = false;
 
     constructor(
         private apiservice: HotelAPIserviceService
@@ -116,6 +118,19 @@ export class RoomVacanciesComponent {
         for (let i = 0; i < this.rooms.length; i++) {
             if (!this.bookings.some(b => b.roomId === this.rooms[i].id) && this.rooms[i].roomType === 1) {
                 this.doubleVacancies.push(this.rooms[i]);
+            }
+        }
+    }
+
+    public showAllFamilyVacancies() {
+        // Gets Bookings+Rooms, and "removes" booked rooms by roomNo
+
+        this.familyVacancies = [];
+        this.showFamilyVacanciesClicked = !this.showFamilyVacanciesClicked;
+
+        for (let i = 0; i < this.rooms.length; i++) {
+            if (!this.bookings.some(b => b.roomId === this.rooms[i].id) && this.rooms[i].roomType === 2) {
+                this.familyVacancies.push(this.rooms[i]);
             }
         }
     }

@@ -42,7 +42,7 @@
 <form (ngSubmit)="submitBooking()" #bookingForm="ngForm">
     <fieldset>
         <legend>Guest ID</legend>
-        <input type="text" id="guestID" name="guestID" [(ngModel)]="booking.guestId" required>
+        <input type="number" id="guestID" name="guestID" [(ngModel)]="booking.guestId" required>
     </fieldset>
     <fieldset>
         <legend>Check-in Date and Time</legend>

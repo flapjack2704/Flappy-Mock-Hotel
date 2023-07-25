@@ -6,4 +6,8 @@ The angular site is built to be used by some hotel employee, while sat at the ho
 I plan to host that on Github Pages once the project is "done" (always open to add new features thereafter).
 I still need to figure out how to remote host my API and sql database :D
 
+
+
+We will only use one guest's details when booking, even for double/family rooms. I have absolutely no idea if that's how most real-life hotels do it, but mehhh it's simpler for me.
+
 I might add some pretend debit card payment thing later on, but for now just pretend every guest pays with cash (and diligently pays us at the end of their stay, or else.....).
