@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 import { BookingsComponent } from './bookings/bookings.component';
 import { FormsModule } from '@angular/forms';
 import { RoomVacanciesComponent } from './room-vacancies/room-vacancies.component';
+import { GuestsComponent } from './guests/guests.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BookingsComponent,
     RoomVacanciesComponent,
+    GuestsComponent,
 
   ],
   imports: [

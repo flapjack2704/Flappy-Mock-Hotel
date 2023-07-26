@@ -1,1 +1,10 @@
+hr{
+    height: 4px;
+    border: none;
+    background-color: black;
+}
 
+#homepageLink{
+    text-decoration: none;
+    color: black;
+}

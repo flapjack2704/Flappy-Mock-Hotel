@@ -1,0 +1,47 @@
+<h2>Guests</h2>
+
+<h3>Adding New Guest To System</h3>
+<form (ngSubmit)="submitGuest()" #guestForm="ngForm">
+    <fieldset>
+        <legend>First Name</legend>
+        <input type="text" id="fname" name="firstName" [(ngModel)]="guest.firstName" required>
+    </fieldset>
+    <fieldset>
+        <legend>Last Name</legend>
+        <input type="text" id="lname" name="lastName" [(ngModel)]="guest.lastName" required>
+    </fieldset>
+    <fieldset>
+        <legend>Email</legend>
+        <input type="text" id="email" name="email" [(ngModel)]="guest.email" required>
+    </fieldset>
+    <fieldset>
+        <legend>Phone Number</legend>
+        <input type="text" id="phone" name="phone" [(ngModel)]="guest.phoneNumber">
+    </fieldset>
+    <button type="submit" id="guestButton" [disabled]="!guestForm.form.valid">Submit</button>
+</form>
+
+<p>REMOVE LATER TEST: {{guest.firstName}} {{guest.lastName}} {{guest.email}} {{guest.phoneNumber}}</p>
+<p>{{guest | json}}</p>
+
+
+<h3>Getting Guest Data</h3>
+<button (click)="showAllGuests()">Get All Guests</button>
+<table *ngIf="allGuestsButtonClicked">
+    <tr *ngFor="let guest of allGuests">
+        <td>
+            <ul>
+                <li>
+                    Id = {{guest.id}}<br />
+                    Name = {{guest.firstName}} {{guest.lastName}}<br />
+                    Phone number = {{guest.phoneNumber}}<br />
+                    Email = {{guest.email}}<br />
+                </li>
+            </ul>
+        </td>
+    </tr>
+    
+</table>
+
+
+<br /><br /><br /><br /><br /><br />

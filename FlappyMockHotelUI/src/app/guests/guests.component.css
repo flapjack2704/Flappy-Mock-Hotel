@@ -1,0 +1,22 @@
+fieldset {
+    width: 340px;
+    font-size: 18px;
+}
+
+    fieldset > input {
+        font-size: 18px;
+        height: 30px;
+        width: 340px;
+    }
+
+button {
+    margin-top: 10px;
+}
+
+.ng-valid[required], .ng-valid.required {
+    border-left: 8px solid #1bed79; /* green */
+}
+
+.ng-invalid:not(form) {
+    border-left: 8px solid #ff0000; /* red */
+}

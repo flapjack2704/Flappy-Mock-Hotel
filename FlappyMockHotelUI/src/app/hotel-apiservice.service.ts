@@ -28,4 +28,14 @@ export class HotelAPIserviceService {
         const url = 'https://localhost:7262/api/flappy-hotel-bookings/rooms'
         return this.http.get(url);
     }
+
+    public getAllGuests(): Observable<any> {
+        const url = 'https://localhost:7262/api/flappy-hotel-bookings/guests'
+        return this.http.get(url);
+    }
+
+    public async addNewGuest(guest: JSON) {
+        const url = 'https://localhost:7262/api/flappy-hotel-bookings/guests'
+        await this.http.post(url, guest).toPromise();
+    }
 }

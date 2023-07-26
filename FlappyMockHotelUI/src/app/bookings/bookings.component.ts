@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { HotelAPIserviceService } from '../hotel-apiservice.service';
 
 class Guest{
-  constructor(
-    public firstname: string,
-    public lastname: string,
+    constructor(
+    public firstName: string,
+    public lastName: string,
     public email: string,
     public phone: string,
 
@@ -56,7 +56,4 @@ export class BookingsComponent {
         alert("Booking button clicked")
     }
 
-    public submitGuest() {
-        alert("Guest button clicked")
-    }
 }
