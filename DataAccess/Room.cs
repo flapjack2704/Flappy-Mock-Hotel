@@ -34,6 +34,7 @@ namespace Flappy_Mock_Hotel.DataAccess
             builder.HasKey(x => x.Id);
             builder.Property(x => x.RoomNo).HasMaxLength(4);
             builder.Property(x => x.PricePerNight).HasColumnType("Decimal(5,2)");
+            builder.Property(x => x.RoomType).HasConversion<string>().HasMaxLength(20);
         }
     }
 }

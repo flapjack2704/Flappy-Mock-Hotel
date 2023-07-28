@@ -8,6 +8,7 @@ import { BookingsComponent } from './bookings/bookings.component';
 import { FormsModule } from '@angular/forms';
 import { RoomVacanciesComponent } from './room-vacancies/room-vacancies.component';
 import { GuestsComponent } from './guests/guests.component';
+import { BillingsComponent } from './billings/billings.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { GuestsComponent } from './guests/guests.component';
     BookingsComponent,
     RoomVacanciesComponent,
     GuestsComponent,
+    BillingsComponent,
 
   ],
   imports: [

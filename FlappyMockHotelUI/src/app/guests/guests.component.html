@@ -16,16 +16,48 @@
     </fieldset>
     <fieldset>
         <legend>Phone Number</legend>
-        <input type="text" id="phone" name="phone" [(ngModel)]="guest.phoneNumber">
+        <input type="text" id="phone" name="phone" [(ngModel)]="guest.phoneNumber" required>
     </fieldset>
     <button type="submit" id="guestButton" [disabled]="!guestForm.form.valid">Submit</button>
 </form>
 
-<p>REMOVE LATER TEST: {{guest.firstName}} {{guest.lastName}} {{guest.email}} {{guest.phoneNumber}}</p>
-<p>{{guest | json}}</p>
-
 
 <h3>Getting Guest Data</h3>
+
+<form (ngSubmit)="searchGuestByEmail()" #guestEmailSearch="ngForm">
+    <fieldset>
+        <legend>Search via Email</legend>
+        <input type="text" id="emailSearch" name="emailSearch" [(ngModel)]="guestToSearch.email" required />
+    </fieldset>
+    <button type="submit" id="guestSearchButton" [disabled]="!guestEmailSearch.form.valid">Submit</button>
+</form>
+<p *ngIf="showEmailFound">Guest found! Guest with email {{ guestFoundEmail }}: <br />
+    {{ guestFoundName }}, GuestId = {{ guestFoundId }} <br />
+    Phone number: {{ guestFoundPhone }}
+</p>
+<p *ngIf="showEmailNotFound">No guest found with that email</p>
+
+<br />
+
+<form (ngSubmit)="searchGuestByPhone()" #guestPhoneSearch="ngForm">
+    <fieldset>
+        <legend>Search via Phone Number</legend>
+        <input type="text" id="phoneSearch" name="phoneSearch" [(ngModel)]="guestToSearch.phoneNumber" required />
+    </fieldset>
+    <button type="submit" id="phoneGuestSearchButton" [disabled]="!guestPhoneSearch.form.valid">Submit</button>
+</form>
+<p *ngIf="showPhoneFound">
+    Guest found! Guest with phone number {{ guestFoundPhone }}: <br />
+    {{ guestFoundName }}, GuestId = {{ guestFoundId }} <br />
+    Email: {{ guestFoundEmail }}
+</p>
+<p *ngIf="showPhoneNotFound">No guest found with that phone number</p>
+
+
+<br />
+<br />
+<br />
+
 <button (click)="showAllGuests()">Get All Guests</button>
 <table *ngIf="allGuestsButtonClicked">
     <tr *ngFor="let guest of allGuests">
@@ -40,8 +72,10 @@
             </ul>
         </td>
     </tr>
-    
+
 </table>
 
 
-<br /><br /><br /><br /><br /><br />
+<br />
+<br />
+<br />

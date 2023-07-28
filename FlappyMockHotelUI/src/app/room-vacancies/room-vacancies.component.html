@@ -39,7 +39,7 @@
     </tr>
     <ng-container *ngIf="showRoomsClicked">
         <tr>
-            Type: 0 = Single, 1 = Double, 2 = Family. Will change EF Migration later lol
+            Type: 0 = Single, 1 = Double, 2 = Family
         </tr>
         <tr *ngFor="let room of rooms">
             <td><ul><li>Room no. {{ room.roomNo }}: type = {{ room.roomType }}, {{ room.pricePerNight | currency:'EUR' }} per night</li></ul></td>

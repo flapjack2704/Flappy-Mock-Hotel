@@ -15,6 +15,10 @@ namespace Flappy_Mock_Hotel.DataAccess
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(HotelDataContext).Assembly);
+            modelBuilder.Entity<Guest>().HasIndex(g => g.Email)
+                .IsUnique();
+            modelBuilder.Entity<Guest>().HasIndex(g => g.PhoneNumber)
+                .IsUnique();
         }
 
 

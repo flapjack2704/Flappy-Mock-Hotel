@@ -4,6 +4,7 @@ fieldset {
 }
 
     fieldset > input {
+        padding: 4px;
         font-size: 18px;
         height: 30px;
         width: 340px;

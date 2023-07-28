@@ -113,6 +113,12 @@ namespace Flappy_Mock_Hotel.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("Email")
+                        .IsUnique();
+
+                    b.HasIndex("PhoneNumber")
+                        .IsUnique();
+
                     b.ToTable("Guests");
                 });
 
@@ -132,8 +138,9 @@ namespace Flappy_Mock_Hotel.Migrations
                         .HasMaxLength(4)
                         .HasColumnType("nvarchar(4)");
 
-                    b.Property<int?>("RoomType")
-                        .HasColumnType("int");
+                    b.Property<string>("RoomType")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.HasKey("Id");
 
