@@ -1,9 +1,6 @@
 using Flappy_Mock_Hotel.DataAccess;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
-using System.Collections.Generic;
-using System.ComponentModel;
 
 namespace Flappy_Mock_Hotel.Controllers
 {

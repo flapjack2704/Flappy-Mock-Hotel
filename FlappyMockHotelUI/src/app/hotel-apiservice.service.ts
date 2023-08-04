@@ -38,4 +38,9 @@ export class HotelAPIserviceService {
         const url = 'https://localhost:7262/api/flappy-hotel-bookings/guests'
         await this.http.post(url, guest).toPromise();
     }
+
+    public async addNewBooking(booking: JSON) {
+        const url = 'https://localhost:7262/api/flappy-hotel-bookings/bookings'
+        await this.http.post(url, booking).toPromise();
+    }
 }
