@@ -1,5 +1,6 @@
 ﻿Hello and welcome to my first dabble with EF Core, ASP.Net API and Angular. 
 
+### FlappyMockHotelUI contains the Angular site.
 The angular site hits an API, which is connected to an SQL database.
 The angular site is built to be used by some hotel employee, while sat at the hotel's front desk.
 
