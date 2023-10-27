@@ -1,7 +1,11 @@
 ﻿Hello and welcome to my first dabble with EF Core, ASP.Net API and Angular. 
 
 ### FlappyMockHotelUI contains the Angular site.
-The angular site hits an API, which is connected to an SQL database.
+1. Run program.cs in Visual Studio to start the API
+2. Open FlappyMockHotelUI in command line and run "npm start"
+### If there is no auto-populated data for rooms, you will need to Post some via the api. Also, make sure you have LocalDB installed.
+
+The angular site hits an API, which is connected to a LocalDB SQL database.
 The angular site is built to be used by some hotel employee, while sat at the hotel's front desk.
 
 I plan to host that on Github Pages once the project is "done" (always open to add new features thereafter).
