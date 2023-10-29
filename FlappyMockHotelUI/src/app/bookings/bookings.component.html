@@ -15,14 +15,12 @@
     <fieldset>
         <legend>Check-in Date and Time</legend>
         <input type="datetime-local" id="checkIn" [(ngModel)]="booking.startDate"
-               name="checkin" value=""
-               min="2023-08-01T00:00" max="2023-10-01T00:00" required>
+               name="checkin" value="" required>
     </fieldset>
     <fieldset>
         <legend>Check-out Date and Time</legend>
         <input type="datetime-local" id="checkOut" [(ngModel)]="booking.endDate"
-               name="checkout" value=""
-               min="2023-08-01T00:00" max="2023-10-01T00:00" required>
+               name="checkout" value="" required>
     </fieldset>
     <fieldset>
         <legend>Room Number</legend>
@@ -34,6 +32,4 @@
     </fieldset>
     <button type="submit" id="bookingButton" [disabled]="!bookingForm.form.valid">Submit</button>
 </form>
-
-<p>{{ booking | json }}</p>
 

@@ -145,6 +145,106 @@ namespace Flappy_Mock_Hotel.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Rooms");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            PricePerNight = 40m,
+                            RoomNo = "101",
+                            RoomType = "Double"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            PricePerNight = 40m,
+                            RoomNo = "102",
+                            RoomType = "Double"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            PricePerNight = 40m,
+                            RoomNo = "103",
+                            RoomType = "Double"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            PricePerNight = 40m,
+                            RoomNo = "104",
+                            RoomType = "Double"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            PricePerNight = 30m,
+                            RoomNo = "201",
+                            RoomType = "Single"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            PricePerNight = 30m,
+                            RoomNo = "202",
+                            RoomType = "Single"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            PricePerNight = 30m,
+                            RoomNo = "203",
+                            RoomType = "Single"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            PricePerNight = 30m,
+                            RoomNo = "204",
+                            RoomType = "Single"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            PricePerNight = 60m,
+                            RoomNo = "301",
+                            RoomType = "Family"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            PricePerNight = 60m,
+                            RoomNo = "302",
+                            RoomType = "Family"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            PricePerNight = 60m,
+                            RoomNo = "303",
+                            RoomType = "Family"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            PricePerNight = 60m,
+                            RoomNo = "304",
+                            RoomType = "Family"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            PricePerNight = 90m,
+                            RoomNo = "498",
+                            RoomType = "Double"
+                        },
+                        new
+                        {
+                            Id = 14,
+                            PricePerNight = 90m,
+                            RoomNo = "499",
+                            RoomType = "Double"
+                        });
                 });
 
             modelBuilder.Entity("Flappy_Mock_Hotel.DataAccess.Billing", b =>
