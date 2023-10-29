@@ -1,4 +1,4 @@
-﻿Hello and welcome to my first dabble with EF Core, ASP.Net API and Angular; Developed in Visual Studio
+﻿Hello and welcome to my first dabble with EntityFramework Core, ASP.Net API and Angular; Developed in Visual Studio
 
 The angular site hits an API, which is connected to a LocalDB SQL database.
 The angular site is built to be used by some hotel employee, while sat at the hotel's front desk.
